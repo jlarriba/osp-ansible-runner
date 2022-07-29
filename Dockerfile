@@ -1,5 +1,4 @@
-# FROM quay.io/ansible/ansible-runner:stable-2.12-devel
-FROM quay.rdoproject.org/tripleowallabycentos8/openstack-tripleo-ansible-ee:29ea3eab2a25a68e5f5d3481a23b3671
+FROM quay.rdoproject.org/tripleomastercentos9/openstack-tripleo-ansible-ee:b979b304ce5b7f7c85e20db171281a9f
 
 WORKDIR /runner
 
