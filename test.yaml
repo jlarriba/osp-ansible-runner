@@ -7,13 +7,48 @@
         msg: "hello world"
 
     - name: List directory contents
-      command: "ls -la /runner/configs/swift-configmap"
+      command: "ls -lap /runner/configs"
+      register: configs_dir
+    
+    - name: Debug configs_dir
+      debug:
+        var: configs_dir
+
+    - name: List directory contents
+      command: "ls -lap /runner/configs/swift-configmap"
       register: swift_dir
     
     - name: Debug swift_dir
       debug:
         var: swift_dir
 
+    - name: List directory contents
+      command: "ls -lap /runner/configs/test-configmap-1"
+      register: test_configmap_1_dir
+    
+    - name: Debug test_configmap_1_dir
+      debug:
+        var: test_configmap_1_dir
+
+    - name: List directory contents
+      command: "ls -lap /runner/configs/test-configmap-2"
+      register: test_configmap_2_dir
+    
+    - name: Debug test_configmap_2_dir
+      debug:
+        var: test_configmap_2_dir
+
     - name: Debug swift-configmap
       debug:
+        msg: "the value of swift_account_ring is {{lookup('file', '/runner/configs/swift-configmap') }}"
+      ignore_errors: true
+
+    - name: Debug swift_account_ring
+      debug:
         msg: "the value of swift_account_ring is {{lookup('file', '/runner/configs/swift-configmap/swift_account_ring') }}"
+      ignore_errors: true
+
+    - name: Debug test-configmap-2
+      debug:
+        msg: "the value of swift_account_ring is {{lookup('file', '/runner/configs/test-configmap-2/config.yaml') }}"
+      ignore_errors: true
