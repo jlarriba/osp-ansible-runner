@@ -5,3 +5,15 @@
     - name: Show a hello world message 
       debug:
         msg: "hello world"
+
+    - name: List directory contents
+      command: "ls -la /runner/configs/swift-configmap"
+      register: swift_dir
+    
+    - name: Debug swift_dir
+      debug:
+        var: swift_dir
+
+    - name: Debug swift-configmap
+      debug:
+        msg: "the value of swift_account_ring is {{lookup('file', '/runner/configs/swift-configmap/swift_account_ring') }}"
