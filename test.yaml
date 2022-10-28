@@ -25,6 +25,7 @@
     - name: List directory contents
       command: "ls -lap /runner/configs/test-configmap-1"
       register: test_configmap_1_dir
+      ignore_errors: true
     
     - name: Debug test_configmap_1_dir
       debug:
@@ -52,3 +53,7 @@
       debug:
         msg: "the value of swift_account_ring is {{lookup('file', '/runner/configs/test-configmap-2/config.yaml') }}"
       ignore_errors: true
+    
+    - name: View all variables
+      debug:
+        var: vars
