@@ -54,6 +54,6 @@
         msg: "the value of swift_account_ring is {{lookup('file', '/runner/configs/test-configmap-2/config.yaml') }}"
       ignore_errors: true
     
-    - name: View all variables
+    - name: List environment variables
       debug:
-        var: vars
+        var: vars["ansible_env"]
