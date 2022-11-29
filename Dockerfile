@@ -9,7 +9,6 @@ ADD entrypoint.sh ./bin/entrypoint.sh
 ADD playbook.yaml ./project
 ADD standalone-playbook.yaml ./project
 
-
 # Test script 
 # ADD ping.yaml ./project
 
