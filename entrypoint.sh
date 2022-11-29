@@ -5,7 +5,8 @@
 eval "echo \"$(cat /runner/env/settings)\"" > /runner/env/settings
 
 # MY CHANGES GO HERE..
-cat "You're now in your base image..."
+export RUNNER_PLAYBOOK
+
 
 # Contents from ansible-runner entrypoint
 if [ -n "$EP_DEBUG" ]; then
