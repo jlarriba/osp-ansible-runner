@@ -9,6 +9,7 @@
     - name: List directory contents
       command: "ls -lap /runner/configs"
       register: configs_dir
+      ignore_errors: true
     
     - name: Debug configs_dir
       debug:
@@ -17,6 +18,7 @@
     - name: List directory contents
       command: "ls -lap /runner/configs/swift-configmap"
       register: swift_dir
+      ignore_errors: true
     
     - name: Debug swift_dir
       debug:
@@ -27,13 +29,14 @@
       register: test_configmap_1_dir
       ignore_errors: true
     
-    - name: Debug test_configmap_1_dir
+    - name: Debug test_configma<p_1_dir
       debug:
         var: test_configmap_1_dir
 
     - name: List directory contents
       command: "ls -lap /runner/configs/test-configmap-2"
       register: test_configmap_2_dir
+      ignore_errors: true
     
     - name: Debug test_configmap_2_dir
       debug:

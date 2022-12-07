@@ -1,14 +1,26 @@
 #!/usr/bin/env bash
 
 # Adding tripleo ansible-runner specific scripts here
-# Expand the variables
+# Expand the variables in settings
 eval "echo \"$(cat /runner/env/settings)\"" > /runner/env/settings
 
-# MY CHANGES GO HERE..
-export RUNNER_PLAYBOOK
+if [ -n "$RUNNER_STANDALONE_ROLE" ]; then
+    echo "---" > /runner/project/standalone-playbook.yaml
+    echo "$RUNNER_STANDALONE_ROLE" >> /runner/project/standalone-playbook.yaml
+fi
+
+if [ -n "$RUNNER_INVENTORY" ]; then
+    echo "---" > /runner/inventory/inventory.yaml
+    echo "$RUNNER_INVENTORY" >> /runner/inventory/inventory.yaml
+fi
+
+if [ -n "$RUNNER_PLAYBOOK" ]; then
+    echo "---" > /runner/project/playbook.yaml
+    echo "$RUNNER_PLAYBOOK" >> /runner/project/playbook.yaml
+fi
 
 
-# Contents from ansible-runner entrypoint
+# if any of this business fails, we probably want to fail fast
 if [ -n "$EP_DEBUG" ]; then
   set -eux
   echo 'hello from entrypoint'
@@ -61,4 +73,8 @@ if [ -f "/usr/bin/dumb-init" ]; then
     SCRIPT=/usr/bin/dumb-init
 fi
 
+<<<<<<< HEAD
 exec $SCRIPT -- "${@}"
+=======
+exec $SCRIPT -- "${@}"
+>>>>>>> cea8790c2bf15635fa0fb8f635e9e9499a81ac32
