@@ -1,5 +1,7 @@
 FROM quay.io/tripleomastercentos9/openstack-tripleo-ansible-ee:current-tripleo
 
+USER root
+
 ADD test.yaml ./project
 
 USER root

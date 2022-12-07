@@ -19,6 +19,12 @@ if [ -n "$RUNNER_PLAYBOOK" ]; then
     echo "$RUNNER_PLAYBOOK" >> /runner/project/playbook.yaml
 fi
 
+# MY CODE BELOW
+
+if [ -n "$RUNNER_PLUGIN" ]; then
+    echo "$RUNNER_PLUGIN" >> /runner/inventory/plugins/pluginrc.sh
+    chmod +x /runner/inventory/plugin/pluginrc.sh
+fi
 
 # if any of this business fails, we probably want to fail fast
 if [ -n "$EP_DEBUG" ]; then
