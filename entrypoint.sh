@@ -20,9 +20,11 @@ if [ -n "$RUNNER_PLAYBOOK" ]; then
 fi
 
 # MY CODE BELOW
-
 if [ -n "$RUNNER_PLUGIN" ]; then
-    echo "$RUNNER_PLUGIN" >> /runner/inventory/plugins/pluginrc.sh
+    echo "$RUNNER_PLUGIN" >> /runner/inventory/plugin/pluginrc.sh
+    touch /runner/inventory/plugin/openstack.yaml
+    touch /runner/inventory/plugin/clouds.yaml
+    touch /runner/inventory/plugin/pluginrc.sh
     chmod +x /runner/inventory/plugin/pluginrc.sh
 fi
 
