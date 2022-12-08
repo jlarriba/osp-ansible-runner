@@ -1,4 +1,5 @@
----
+#!/usr/bin/env bash
+
 # Copyright 2022 Red Hat, Inc.
 # All Rights Reserved.
 #
@@ -14,4 +15,4 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-${RUNNER_PLUGIN}
+$RUNNER_INVENTORY
