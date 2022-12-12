@@ -1,0 +1,6 @@
+---
+- name: ping static inventory
+  hosts: overcloud
+  tasks:
+  - name: Testing ping
+    ansible.builtin.ping:
