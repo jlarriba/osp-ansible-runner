@@ -22,9 +22,9 @@ fi
 # MY CODE BELOW
 if [ -n "$RUNNER_PLUGIN" ]; then
     echo "$RUNNER_PLUGIN" >> /runner/inventory/plugin/pluginrc.sh
-    # touch /runner/inventory/plugin/openstack.yaml probably dont need these NOTE:
-    # touch /runner/inventory/plugin/clouds.yaml
-    # touch /runner/inventory/plugin/pluginrc.sh
+    touch /runner/inventory/plugin/openstack.yaml
+    touch /runner/inventory/plugin/clouds.yaml
+    touch /runner/inventory/plugin/pluginrc.sh
     chmod +x /runner/inventory/plugin/pluginrc.sh
 fi
 
