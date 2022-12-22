@@ -3,6 +3,7 @@ FROM quay.io/tripleomastercentos9/openstack-tripleo-ansible-ee:current-tripleo
 USER root
 
 ADD test.yaml ./project
+ADD plugin/ ./inventory/plugin
 
 USER root
 RUN chmod -R 777 /usr/share/ansible

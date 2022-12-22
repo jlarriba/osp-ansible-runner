@@ -20,8 +20,8 @@ if [ -n "$RUNNER_PLAYBOOK" ]; then
 fi
 
 # MY CODE BELOW
-if [ -n "$RUNNER_PLUGIN" ]; then NOTE: no changes needed for the inventory plugin
-  yum install -y openstack-utils
+if [ -n "$RUNNER_PLUGIN" ]; then # NOTE: no changes needed for the inventory plugin
+  cd /runner/inventory/plugin && pip install .
 fi
 
 # if any of this business fails, we probably want to fail fast
