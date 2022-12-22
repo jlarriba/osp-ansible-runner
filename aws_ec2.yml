@@ -1,9 +1,0 @@
-plugin: aws_ec2
-regions:
-  - us-east-1
-keyed_groups:
-  - key: tags.ansible-plugin
-filters:
-  instance-state-name: running
-compose:
-  ansible_host: 172.31.85.157

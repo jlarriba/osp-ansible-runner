@@ -13,7 +13,7 @@ class EdpmComputeInventory(BaseInventoryPlugin):
         super().__init__()
 
         # Load the environment variable
-        env_var = os.environ['RUNNER_PLUGIN']
+        env_var = os.environ['RUNNER_INVENTORY']
 
         # Parse the environment variable as YAML
         data = yaml.safe_load(env_var)
