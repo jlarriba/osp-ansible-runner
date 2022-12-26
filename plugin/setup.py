@@ -6,7 +6,7 @@ setup(
     py_modules=['edpm_plugin'],
     entry_points={
         'ansible.plugins.inventory': [
-            'edpm_plugin = edpm_plugin:EdpmComputeInventory',
+            'edpm_plugin = edpm_plugin:InventoryModule',
         ],
     },
 )

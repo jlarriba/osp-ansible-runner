@@ -1,0 +1,3 @@
+plugin: edpm_plugin                    # Name of the plugin
+path_to_inventory: /runner/plugin      # Directory location of CSV
+inventory_file: edpm_inventory.yaml    # Name of the inventory file 
