@@ -9,6 +9,10 @@ if [ -n "$RUNNER_STANDALONE_ROLE" ]; then
     echo "$RUNNER_STANDALONE_ROLE" >> /runner/project/standalone-playbook.yaml
 fi
 
+# NOTE: using this to test image 
+export RUNNER_INVENTORY=$(cat ./plugin/inventory.yaml)
+export RUNNER_PLUGIN=0
+
 if [ -n "$RUNNER_INVENTORY" ]; then
     echo "---" > /runner/inventory/inventory.yaml
     echo "$RUNNER_INVENTORY" >> /runner/inventory/inventory.yaml
@@ -20,8 +24,11 @@ if [ -n "$RUNNER_PLAYBOOK" ]; then
 fi
 
 # MY CODE BELOW
-if [ -n "$RUNNER_PLUGIN" ]; then # NOTE: no changes needed for the inventory plugin
-  cd /runner/inventory/plugin && pip install .
+if [ -n "$RUNNER_PLUGIN" ]; then
+  # set plugin module path for ansible 
+  export ANSIBLE_INVENTORY_PLUGINS=/runner/plugin && cd plugin/ && pip install .
+  # debug 
+  echo "ansible-inventory -i inventory.yaml --playbook-dir ./ --list"
 fi
 
 # if any of this business fails, we probably want to fail fast
