@@ -22,10 +22,10 @@ fi
 # MY CODE BELOW
 if [ -n "$RUNNER_PLUGIN" ]; then
   export ANSIBLE_INVENTORY_PLUGINS=/runner/plugin
-  echo "$RUNNER_PLUGIN" >> /runner/plugin/edpm_plugin.py
+  # echo "$RUNNER_PLUGIN" >> /runner/plugin/edpm_plugin.py
   # Add configmap to inventory  
-  echo "---" > /runner/inventory/edpm_inventory.yaml
-  echo "$RUNNER_EDPM" >> /runner/inventory/edpm_inventory.yaml
+  # echo "---" > /runner/inventory/edpm_inventory.yaml
+  # echo "$RUNNER_EDPM" >> /runner/inventory/edpm_inventory.yaml
 fi
 
 # if any of this business fails, we probably want to fail fast

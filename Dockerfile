@@ -3,13 +3,8 @@ FROM quay.io/tripleomastercentos9/openstack-tripleo-ansible-ee:current-tripleo
 USER root
 
 # Test
-# ADD plugin/ ./plugin
+ADD plugin/ ./plugin
 ADD ping.yaml ./project
-
-# Config for plugin
-RUN mkdir /runner/plugin
-RUN touch /runner/plugin/edpm_plugin.py
-
 
 USER root
 RUN chmod -R 777 /usr/share/ansible
