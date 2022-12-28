@@ -6,9 +6,14 @@ USER root
 # ADD plugin/ ./plugin
 ADD ping.yaml ./project
 
+# Config for plugin
+RUN mkdir /runner/plugin
+RUN touch /runner/plugin/edpm_plugin.py
+
 
 USER root
 RUN chmod -R 777 /usr/share/ansible
+RUN chmod +x /runner/plugin/edpm_plugin.py
 ADD entrypoint.sh /bin/tripleo_entrypoint
 RUN chmod +x /bin/tripleo_entrypoint
 USER 1001
