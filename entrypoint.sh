@@ -21,11 +21,8 @@ fi
 
 # MY CODE BELOW
 if [ -n "$RUNNER_PLUGIN" ]; then
-  export ANSIBLE_INVENTORY_PLUGINS=/runner/plugin
-  # echo "$RUNNER_PLUGIN" >> /runner/plugin/edpm_plugin.py
-  # Add configmap to inventory  
-  # echo "---" > /runner/inventory/edpm_inventory.yaml
-  # echo "$RUNNER_EDPM" >> /runner/inventory/edpm_inventory.yaml
+  # install custom edpm plugin, setup/load edpm_inventory.yaml configmap, define inventory.yaml for plugin
+  ansible-galaxy collection install cloudguruab.edpm_plugin
 fi
 
 # if any of this business fails, we probably want to fail fast
