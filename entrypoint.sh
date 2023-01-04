@@ -20,10 +20,9 @@ if [ -n "$RUNNER_PLAYBOOK" ]; then
 fi
 
 # MY CODE BELOW
-if [ -n "$RUNNER_PLUGIN" ]; then
-  # install custom edpm plugin, setup/load edpm_inventory.yaml configmap, define inventory.yaml for plugin
-  ansible-galaxy collection install cloudguruab.edpm_plugin
-fi
+# if [ -n "$RUNNER_PLUGIN" ]; then
+#   # install custom edpm plugin, setup/load edpm_inventory.yaml configmap, define inventory.yaml for plugin
+# fi
 
 # if any of this business fails, we probably want to fail fast
 if [ -n "$EP_DEBUG" ]; then
